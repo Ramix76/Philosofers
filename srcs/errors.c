@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:30 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/17 17:44:25 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:17:27 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,38 +32,36 @@ static int ft_atoi(char *str, int *valor)
 		i++;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		resultado = resultado * 10 + (*str - 48);
+		resultado = resultado * 10 + (str[i] - 48);
 		i++;
 	}
     *valor = resultado * signo;
-    if ((resultado * signo)> INT_MAX || (resultado * signo) < INT_MIN)
+    if ((resultado * signo) > INT_MAX || (resultado * signo) < INT_MIN)
         return (1);
 	return (0);
 }
 
-int check_args(int argc, char **argv, t_table *table)
+int check_args(int argc, char **argv, t_data *data)
 {
-    if (argc > 6)
+    if (argc > 6 || argc < 5)
 		return (ft_error(ERARGS));
-    if (argc < 5)
-        return (ft_error(ERARGS));
-    if ((ft_atoi(argv[1], &table->n_philos) != 0) || \
-     (ft_atoi(argv[2], &table->data->time_to_die) != 0) || \
-     (ft_atoi(argv[3], &table->data->time_to_eat) != 0) || \
-     (ft_atoi(argv[4], &table->data->time_to_sleep) != 0))
+    if ((ft_atoi(argv[1], &data->n_philos) != 0) || \
+     (ft_atoi(argv[2], &data->time_to_die) != 0) || \
+     (ft_atoi(argv[3], &data->time_to_eat) != 0) || \
+     (ft_atoi(argv[4], &data->time_to_sleep) != 0))
         return (ft_error(EINVALARG));
-    table->data->n_times_ate = -1;
+    if (data->n_philos < 1)
+		return (ft_error(EINVALARG));
+	if (data->time_to_die < 0 || data->time_to_eat < 0 || \
+		data->time_to_sleep < 0)
+		return (ft_error(EINVALARG));
+    data->n_times_ate = -1;
     if (argc == 6)
     {
-        if (ft_atoi(argv[5], &table->data->n_times_ate) != 0)
+        if (ft_atoi(argv[5], &data->n_times_ate) < 0)
             return (ft_error(EINVALARG));
     }
-    if (table->n_philos < 1)
-        return (ft_error(EINVALARG));
-    if ((table->data->time_to_die < 0) || \
-        (table->data->time_to_eat < 0) || \
-        (table->data->time_to_sleep < 0))
-        return (ft_error(EINVALTIME));
+    data->dead = 0;
     return (0); 
 }
 

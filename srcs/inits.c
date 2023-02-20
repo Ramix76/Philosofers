@@ -6,43 +6,50 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:11:22 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/17 18:30:44 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:07:16 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 #include "../inc/errors.h"
 
-int init_philos(t_table *table)
+int init_philos(t_data *data)
 {
     int i;
+    t_philo *tmp;
 
-    table->philos = malloc(sizeof(t_philo) * table->n_philos);
-    if (table->philos == NULL)
+    data->philo = malloc(sizeof(t_philo) * data->n_philos);
+    if (data->philo == NULL)
         return (ft_error(EOUTMEM));
-    i = 0;
-    while (i < table->n_philos)
-    {
-        table->philos[i].num = i;
-        table->data->dead = 0;
-		table->philos[i].eat_counter = 0;
-        table->philos[i].last_meal = 0;
-        i++;
+    i = -1;
+    tmp = data->philo;
+    while (++i < data->n_philos)
+    {      
+        tmp->num = i + 1;
+        tmp->left_fork = i;
+        tmp->eat_counter = 0;
+        tmp->time_last_meal = 0;
+        tmp->data = data;
+        tmp->right_fork = i + 1;
+        tmp++;
     }
+    tmp[i - 1].right_fork = 0;
     return (0);
 }
 
-int init_mutexes(t_table *table)
+int init_mutexes(t_data *data)
 {
     int i;
     
-    table->forks = malloc(sizeof(pthread_mutex_t) * table->n_philos);
-    if (table->forks == NULL)
+    if (pthread_mutex_init(&data->print, NULL) != 0)
+        return (ft_error(EINIT_MUTEX));
+    data->forks = malloc(sizeof(pthread_mutex_t) * data->n_philos);
+    if (data->forks == NULL)
         return (ft_error(EOUTMEM));
     i = 0;
-    while (i < table->n_philos)
+    while (i < data->n_philos)
     {
-        if (pthread_mutex_init(&table->forks[i], NULL) != 0)
+        if (pthread_mutex_init(&data->forks[i], NULL) != 0)
             return (ft_error(ECANCELED));
         i++;
     }

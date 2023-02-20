@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:15:45 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/17 13:12:12 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:37:42 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int ft_error(int error)
         write_errors("Invalid argument");
     if (error == EINVALTIME)
         write_errors("Invalid time passed");
+    if (error == EINIT_MUTEX)
+        write_errors("Failed init mutex");
     return (0);
 }

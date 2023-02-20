@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:51:47 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/17 18:12:12 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:18:37 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_table	table;
+	t_data	*data;
 	
-	check_args(argc, argv, &table);
-	init_philos(&table);
-	init_mutexes(&table);
+	data = malloc(sizeof(data));
+	if (data == NULL)
+		return (EOUTMEM);
+	check_args(argc, argv, data);
+	init_philos(data);
+	init_mutexes(data);
 	return (0);
 }
