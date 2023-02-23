@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:14:04 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/23 15:23:13 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:16:39 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@ int 			init_mutexes(t_data *data);
 long long int   time_stamp(void);
 int 			create_threads(t_data *data);
 void   			*routine(t_data *data);
+int     		lock(t_data *data);
+int     		unlock(t_data *data);
+int			    join(t_data *data, pthread_t *pthread);
 
 #endif

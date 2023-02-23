@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:51:47 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/23 15:40:58 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:20:57 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	main(int argc, char **argv)
 	init_philos(data);
 	init_mutexes(data);
 	create_threads(data);
-	//pthread_join(data->philo[i], NULL);
 	return (0);
 }

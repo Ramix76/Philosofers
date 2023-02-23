@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:15:45 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/22 11:38:50 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:50:00 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ int ft_error(int error)
         write_errors("Failed init mutex");
     if (error == E_CREATE_TH)
         write_errors("Failed thread creation");
+    if (error == EMUTLOCK)
+        write_errors("Failed locking mutex");
+    if (error == EMUTUNLOCK)
+        write_errors("Failed unlocking mutex");
+    if (error == ERRJOIN)
+        write_errors("Failed closing the thread");
+    {
+        /* code */
+    }
+    
     return (0);
 }
 
