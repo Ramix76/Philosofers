@@ -6,13 +6,11 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:30 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/20 16:17:27 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:28:50 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
-
-#include <limits.h>
 
 static int ft_atoi(char *str, int *valor)
 {

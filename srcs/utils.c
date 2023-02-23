@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:15:45 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/20 12:37:42 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:38:50 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,17 @@ int ft_error(int error)
         write_errors("Invalid time passed");
     if (error == EINIT_MUTEX)
         write_errors("Failed init mutex");
+    if (error == E_CREATE_TH)
+        write_errors("Failed thread creation");
     return (0);
+}
+
+long long int   time_stamp(void)
+{
+    struct timeval  time;
+    long long int   real_time;
+
+    gettimeofday(&time, NULL);
+    real_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+    return (real_time);    
 }

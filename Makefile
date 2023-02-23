@@ -6,7 +6,7 @@
 #    By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 13:04:57 by framos-p          #+#    #+#              #
-#    Updated: 2023/02/17 17:17:40 by framos-p         ###   ########.fr        #
+#    Updated: 2023/02/22 11:27:05 by framos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			=	philo
 INC				=	inc
 SRCS			=	srcs/
 
-SRCS_FILES		=	$(SRCS)main.c $(SRCS)errors.c $(SRCS)utils.c $(SRCS)inits.c
+SRCS_FILES		=	$(SRCS)main.c $(SRCS)errors.c $(SRCS)utils.c $(SRCS)inits.c $(SRCS)threads.c
 
 CC				=	gcc
 FLAGS			=	-g -Wall -Wextra -Werror -MMD

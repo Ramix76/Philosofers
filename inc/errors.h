@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:17:42 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/20 12:38:58 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:38:54 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define    EINVALTIME  5
 # define    ECANCELED	6
 # define    EINIT_MUTEX 7
+# define    E_CREATE_TH 8
 /*
 1	EOUTMEM			Out of memory
 2	EINVAL			The value specified by mutex is invalid
@@ -28,6 +29,7 @@
 5   EINVALTIME      Invalid time pass
 6	ECANCELED       Operation canceled
 7   EINIT_MUTEX     Fail on mutex initialitation
+8   E_CREATE_TH     Fail on creating a thread
 */
 
 #endif
