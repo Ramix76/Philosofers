@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:11:22 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/20 16:07:16 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:00:13 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int init_mutexes(t_data *data)
 {
     int i;
     
+    if (pthread_mutex_init(&data->death, NULL) != 0)
+        return (ft_error(EINIT_MUTEX));
     if (pthread_mutex_init(&data->print, NULL) != 0)
         return (ft_error(EINIT_MUTEX));
     data->forks = malloc(sizeof(pthread_mutex_t) * data->n_philos);

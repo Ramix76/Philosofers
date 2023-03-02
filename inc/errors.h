@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:17:42 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/23 16:45:10 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:44:54 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define    EMUTLOCK    9
 # define    EMUTUNLOCK  10
 # define    ERRJOIN     11
+# define    ERRTIME     12
+# define    ERRDEST     13
 /*
 1	EOUTMEM			Out of memory
 2	EINVAL			The value specified by mutex is invalid
@@ -36,6 +38,8 @@
 9   EMUTLOCK        Error locking the mutex
 10  EMUTUNLOCK      Error unlocking the mutex
 11  ERRJOIN         Error cloding the thread
+12  ERRTIME         Error getting the time
+13  ERRDEST         Error destrying mutex
 */
 
 #endif

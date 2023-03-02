@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:14:04 by framos-p          #+#    #+#             */
-/*   Updated: 2023/02/23 18:16:39 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:01:42 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,24 @@ typedef struct s_data
 	t_philo				*philo;
 }	t_data;
 
-
+/* MAIN.c */
 int				main(int argc, char **argv);
+/* ARGS.c */
 int				check_args(int argc, char **argv, t_data *data);
-int				ft_error(int error);
-int				init_philos(t_data *data);
-int 			init_mutexes(t_data *data);
+/* UTILS.c */
 long long int   time_stamp(void);
-int 			create_threads(t_data *data);
-void   			*routine(t_data *data);
+int				ft_error(int error);
+/* CLEAN_AND_DESTROY.c */
+int				cleanning(t_data *data, int detroy, int error);
+/* MUTEX_CONTROL.c */
 int     		lock(t_data *data);
 int     		unlock(t_data *data);
 int			    join(t_data *data, pthread_t *pthread);
+/* INITS.c */
+int				init_philos(t_data *data);
+int 			init_mutexes(t_data *data);
+/* THREADS.c */
+int 			create_threads(t_data *data);
+void   			*routine(t_data *data);
 
 #endif
