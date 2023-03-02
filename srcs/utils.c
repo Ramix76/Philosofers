@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:15:45 by framos-p          #+#    #+#             */
-/*   Updated: 2023/03/02 15:08:47 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:19:51 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ int ft_error(int error)
         write_errors("Failed unlocking mutex");
     if (error == ERRJOIN)
         write_errors("Failed closing the thread");
-    {
-        /* code */
-    }
-    
     return (0);
 }
 

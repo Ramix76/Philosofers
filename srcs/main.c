@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:51:47 by framos-p          #+#    #+#             */
-/*   Updated: 2023/03/02 16:58:15 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:18:26 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	//int		i;
 	
 	data = malloc(sizeof(data));
 	if (data == NULL)
