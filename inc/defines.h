@@ -78,6 +78,8 @@ int 			create_threads(t_data *data);
 void   			*routine(void *arg);
 /* ACTIONS.c */
 int				eat(t_philo *philo);
+int 			sleep(t_philo *philo);
+int 			think(t_philo *philo);
 /* PRINT_ACTIONS.c */
 int print_action_taken(t_philo *philo, int action);
 

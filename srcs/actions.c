@@ -49,3 +49,21 @@ int eat(t_philo *philo)
   unlock_forks(philo);
   return (0);
 }
+
+int sleep(t_philo *philo)
+{
+  if (philo->data->dead != 0)
+    return (-1);
+  if (print_action_taken(philo, SLEEP) != 0)
+    return (1);
+  if (ft_usleep(philo->data->time_to_sleep) != 0)
+    return (1);
+  return (0);
+}
+ int  think(t_philo *philo)
+ {
+  if (philo->data->dead != 0)
+    return (-1);
+  if (print_action_taken(philo, THINK) != 0)
+    return (1);
+ }
