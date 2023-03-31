@@ -16,10 +16,10 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 	
-	data = malloc(sizeof(data));
+	data = malloc(sizeof(t_data));
 	if (data == NULL)
 		return (ft_error(EOUTMEM));
-	if (check_args(argc, argv, data) != 0)
+	if (parsing(argc, argv, data) != 0)
 	{
 		free(data);
 		return (1);	

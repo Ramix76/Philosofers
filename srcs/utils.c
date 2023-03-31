@@ -47,7 +47,7 @@ int ft_error(int error)
         write_errors("Failed unlocking mutex");
     if (error == ERRJOIN)
         write_errors("Failed closing the thread");
-    return (0);
+    return (1);
 }
 
 long long int   time_stamp(void)
@@ -58,4 +58,17 @@ long long int   time_stamp(void)
     gettimeofday(&time, NULL);
     real_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
     return (real_time);    
+}
+
+int ft_usleep(int time)
+{
+    long long int   current_time;
+
+    current_time = time_stamp();
+    while (time > time_stamp() - current_time)
+    {
+        if (usleep(1) == -1)
+            return (ft_error(ER_USLEEP));
+    }
+    return (0);
 }

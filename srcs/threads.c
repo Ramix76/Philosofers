@@ -12,11 +12,12 @@
 
 #include "../inc/defines.h"
 
-void    *routine(t_data *data)
+void    *routine(void *arg)
 {
-    lock(data);
-    printf("Hello\n");
-    unlock(data);
+    t_philo *philo;
+
+    philo = (t_philo *)arg;
+    eat(philo);
     return (NULL);
 }
 
@@ -28,19 +29,21 @@ int create_threads(t_data *data)
     network = malloc(sizeof(pthread_t) * data->n_philos);
     if (network == NULL)
         return (ft_error(EOUTMEM));
-    i = 0;
-    while (i < data->n_philos)
+    i = -1;
+    while (++i < data->n_philos)
     {
-        usleep(100);
+        ft_usleep(100);
         if (pthread_create(&network[i], NULL, (void *(*)(void *))routine, &data->philo[i]) != 0)
         {
             free(network);
             return (ft_error(E_CREATE_TH));
         }
-        i++;
     }
-    usleep(100);
-    join(data, network);
+    // while (1) ;
+
+    ft_usleep(1000);
+    if (join_and_unlock(data, network) != 0)
+        return (1);
     return (0);        
 }
 

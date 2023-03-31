@@ -16,24 +16,21 @@
 int init_philos(t_data *data)
 {
     int i;
-    t_philo *tmp;
-
+    
     data->philo = malloc(sizeof(t_philo) * data->n_philos);
     if (data->philo == NULL)
         return (ft_error(EOUTMEM));
     i = -1;
-    tmp = data->philo;
     while (++i < data->n_philos)
     {      
-        tmp->num = i + 1;
-        tmp->left_fork = i;
-        tmp->eat_counter = 0;
-        tmp->time_last_meal = 0;
-        tmp->data = data;
-        tmp->right_fork = i + 1;
-        tmp++;
+        data->philo[i].num = i + 1;
+        data->philo[i].left_fork = i;
+        data->philo[i].right_fork = i + 1;
+        data->philo[i].eat_counter = 0;
+        data->philo[i].time_last_meal = data->time_start;
+        data->philo[i].data = data;
     }
-    tmp[i - 1].right_fork = 0;
+    data->philo[i - 1].right_fork = 0;
     return (0);
 }
 
@@ -48,12 +45,11 @@ int init_mutexes(t_data *data)
     data->forks = malloc(sizeof(pthread_mutex_t) * data->n_philos);
     if (data->forks == NULL)
         return (ft_error(EOUTMEM));
-    i = 0;
-    while (i < data->n_philos)
+    i = -1;
+    while (++i < data->n_philos)
     {
         if (pthread_mutex_init(&data->forks[i], NULL) != 0)
             return (ft_error(ECANCELED));
-        i++;
     }
     return (0);
 }

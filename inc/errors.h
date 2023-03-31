@@ -26,6 +26,7 @@
 # define    ERRJOIN     11
 # define    ERRTIME     12
 # define    ERRDEST     13
+# define    ER_USLEEP   14
 /*
 1	EOUTMEM			Out of memory
 2	EINVAL			The value specified by mutex is invalid
@@ -40,6 +41,7 @@
 11  ERRJOIN         Error cloding the thread
 12  ERRTIME         Error getting the time
 13  ERRDEST         Error destrying mutex
+14  ER_USLEEP       Error with usleep function
 */
 
 #endif

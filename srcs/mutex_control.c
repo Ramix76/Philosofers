@@ -11,38 +11,30 @@
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
-
-int     lock(t_data *data)
-{
-    if (pthread_mutex_lock(&data->death) < 0)
-        return (ft_error(EMUTLOCK));
-    if (pthread_mutex_lock(&data->print) < 0)
-        return (ft_error(EMUTLOCK));
-    return (0);
-}
-
-int     unlock(t_data *data)
-{
-    if (pthread_mutex_unlock(&data->death) < 0)
-        return (ft_error(EMUTUNLOCK));
-    if (pthread_mutex_unlock(&data->print) < 0)
-        return (ft_error(EMUTUNLOCK));
-    return (0);
-}
     
-int     join(t_data *data, pthread_t *pthread)
+int     join_and_unlock(t_data *data, pthread_t *pthread)
 {
     int i;
     
-    i = 0;
-    while (i < data->n_philos)
+    if (pthread_mutex_unlock(&data->print) != 0)
+    {
+        free(pthread);
+        return (ft_error(EMUTUNLOCK));
+    }
+    if (pthread_mutex_unlock(&data->death) != 0)
+    {
+        free(pthread);
+        return (ft_error(EMUTUNLOCK));
+    }
+    i = -1;
+    while (++i < data->n_philos)
     {
         if (pthread_join(pthread[i], NULL) != 0)
         {
             return (ft_error(ERRJOIN));
         }
         printf("thread closed\n");
-        i++;
     }
+    free(pthread);
     return (0);
 }

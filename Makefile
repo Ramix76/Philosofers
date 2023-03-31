@@ -16,7 +16,7 @@ INC				=	inc
 SRCS			=	srcs/
 
 SRCS_FILES		=	$(SRCS)main.c $(SRCS)errors.c $(SRCS)utils.c $(SRCS)inits.c $(SRCS)threads.c \
-					$(SRCS)mutex_control.c $(SRCS)clean_and_destroy.c
+					$(SRCS)mutex_control.c $(SRCS)clean_and_destroy.c $(SRCS)actions.c $(SRCS)print_actions.c
 
 CC				=	gcc
 FLAGS			=	-g -Wall -Wextra -Werror -MMD
