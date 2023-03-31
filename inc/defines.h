@@ -79,6 +79,6 @@ void   			*routine(void *arg);
 /* ACTIONS.c */
 int				eat(t_philo *philo);
 /* PRINT_ACTIONS.c */
-int print_action_taken(t_data *data, int action);
+int print_action_taken(t_philo *philo, int action);
 
 #endif

@@ -13,23 +13,23 @@
 #include "../inc/defines.h"
 #include "../inc/errors.h"
 
-int print_action_taken(t_data *data, int action)
+int print_action_taken(t_philo *philo, int action)
 {
-    if (pthread_mutex_lock(&data->print) != 0)
+    if (pthread_mutex_lock(&philo->data->print) != 0)
         return (ft_error(EMUTLOCK));
     if (action == GRAB_LEFT)
-        printf("Philo has taken the left fork\n");
+        printf("[%lldms] Philo [%ld] has taken the left fork\n", time_stamp() - philo->data->time_start, philo->num);
     if (action == GRAB_RIGHT)
-        printf("Philo has taken the right fork\n");
+        printf("[%lldms] Philo [%ld] has taken the right fork\n", time_stamp() - philo->data->time_start, philo->num);
     if (action == EAT)
-        printf("Philo is eating\n");
+        printf("[%lldms] Philo [%ld] is eating\n", time_stamp() - philo->data->time_start, philo->num);
     if (action == SLEEP)
-        printf("Philo is sleeping\n");
+        printf("[%lldms] Philo [%ld] is sleeping\n", time_stamp() - philo->data->time_start, philo->num);
     if (action == THINK)
-        printf("Philo is thinking\n");
+        printf("[%lldms] Philo [%ld] is thinking\n", time_stamp() - philo->data->time_start, philo->num);
     if (action == DIE)
-        printf("Philo just died\n");
-    if (pthread_mutex_unlock(&data->print) != 0)
+        printf("[%lldms] Philo [%ld] just died\n", time_stamp() - philo->data->time_start, philo->num);
+    if (pthread_mutex_unlock(&philo->data->print) != 0)
        return (ft_error(EMUTUNLOCK));
     return (0);        
 }

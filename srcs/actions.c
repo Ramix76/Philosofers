@@ -31,20 +31,20 @@ int eat(t_philo *philo)
     return (-1);
   if (pthread_mutex_lock(&data->forks[philo->left_fork]) != 0)
     return (ft_error(EMUTLOCK));
-  if (print_action_taken(data, GRAB_LEFT) != 0)
+  if (print_action_taken(philo, GRAB_LEFT) != 0)
     return (1);
   if (pthread_mutex_lock(&data->forks[philo->right_fork]) != 0)
     return (ft_error(EMUTLOCK));
   if (data->dead == 0)
   {
-    if (print_action_taken(data, GRAB_RIGHT) != 0)
+    if (print_action_taken(philo, GRAB_RIGHT) != 0)
       return (1);
     philo->time_last_meal = time_stamp() - data->time_start;
-    if (print_action_taken(data, EAT) != 0)
+    if (print_action_taken(philo, EAT) != 0)
       return (1);
     if (ft_usleep(data->time_to_eat) != 0)
       return (1);
-      philo->eat_counter++;
+    philo->eat_counter++;
   }
   unlock_forks(philo);
   return (0);
