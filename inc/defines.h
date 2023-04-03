@@ -56,6 +56,20 @@ typedef struct s_data
 # define THINK		4
 # define DIE		5
 
+# define BLK 		"\e[0;30m"
+# define RED 		"\e[0;31m"
+# define GRN 		"\e[5;32m"
+# define YEL 		"\e[0;33m"
+# define BLU 		"\e[0;34m"
+# define MAG 		"\e[0;35m"
+# define CYN 		"\e[0;36m"
+# define UWHT 		"\e[4;37m"
+# define GRAY		"\033[0;90m"
+# define UCYN 		"\e[4;36m"
+# define UMAG 		"\e[4;35m"
+
+# define RESET "\e[0m"
+
 /* MAIN.c */
 int				main(int argc, char **argv);
 /* ARGS.c */

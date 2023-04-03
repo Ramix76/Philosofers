@@ -18,17 +18,17 @@ int print_action_taken(t_philo *philo, int action)
     if (pthread_mutex_lock(&philo->data->print) != 0)
         return (ft_error(EMUTLOCK));
     if (action == GRAB_LEFT)
-        printf("[%lldms] Philo [%ld] has taken the left fork\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %shas taken the left fork%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, YEL, RESET);
     if (action == GRAB_RIGHT)
-        printf("[%lldms] Philo [%ld] has taken the right fork\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %shas taken the right fork%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, GRAY, RESET);
     if (action == EAT)
-        printf("[%lldms] Philo [%ld] is eating\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %sis eating%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, UCYN, RESET);
     if (action == SLEEP)
-        printf("[%lldms] Philo [%ld] is sleeping\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %sis sleeping%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, UMAG, RESET);
     if (action == THINK)
-        printf("[%lldms] Philo [%ld] is thinking\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %sis thinking%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, UWHT, RESET);
     if (action == DIE)
-        printf("[%lldms] Philo [%ld] just died\n", time_stamp() - philo->data->time_start, philo->num);
+        printf("%s[%lld ms]%s %sPhilo [%ld]%s %sjust died%s\n", GRN, time_stamp() - philo->data->time_start, RESET, BLU, philo->num, RESET, RED, RESET);
     if (pthread_mutex_unlock(&philo->data->print) != 0)
        return (ft_error(EMUTUNLOCK));
     return (0);        
