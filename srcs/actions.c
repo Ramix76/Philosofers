@@ -22,7 +22,7 @@ static int  unlock_forks(t_philo *philo)
   return (0);
 }
 
-int eat(t_philo *philo)
+int do_eat(t_philo *philo)
 {
   t_data  *data;
  
@@ -50,7 +50,7 @@ int eat(t_philo *philo)
   return (0);
 }
 
-int sleep(t_philo *philo)
+int do_sleep(t_philo *philo)
 {
   if (philo->data->dead != 0)
     return (-1);
@@ -60,10 +60,11 @@ int sleep(t_philo *philo)
     return (1);
   return (0);
 }
- int  think(t_philo *philo)
+ int  do_think(t_philo *philo)
  {
   if (philo->data->dead != 0)
     return (-1);
   if (print_action_taken(philo, THINK) != 0)
     return (1);
+  return (0);
  }
