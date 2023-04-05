@@ -6,7 +6,7 @@
 #    By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 13:04:57 by framos-p          #+#    #+#              #
-#    Updated: 2023/03/02 17:02:06 by framos-p         ###   ########.fr        #
+#    Updated: 2023/04/05 16:26:39 by framos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ INC				=	inc
 SRCS			=	srcs/
 
 SRCS_FILES		=	$(SRCS)main.c $(SRCS)errors.c $(SRCS)utils.c $(SRCS)inits.c $(SRCS)threads.c \
-					$(SRCS)mutex_control.c $(SRCS)clean_and_destroy.c $(SRCS)actions.c $(SRCS)print_actions.c
+					$(SRCS)mutex_control.c $(SRCS)clean_and_destroy.c $(SRCS)actions.c \
+					$(SRCS)print_actions.c $(SRCS)check_conditions.c
 
 CC				=	gcc
 FLAGS			=	-g -Wall -Wextra -Werror -MMD
