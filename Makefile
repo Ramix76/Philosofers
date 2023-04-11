@@ -3,62 +3,58 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: framos-p <framos-p@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/13 13:04:57 by framos-p          #+#    #+#              #
-#    Updated: 2023/04/05 16:26:39 by framos-p         ###   ########.fr        #
+#    Created: 2023/04/06 11:36:01 by framos-p          #+#    #+#              #
+#    Updated: 2023/04/06 17:11:31 by framos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	philo
+# ---------------------------------- VAR DECLARETION --------------------------#
+NAME			:=	philo
 
-INC				=	inc
-SRCS			=	srcs/
+MANDATORY_DIR	:=	philo/
+BONUS_DIR		:=	philo_bonus/
 
-SRCS_FILES		=	$(SRCS)main.c $(SRCS)errors.c $(SRCS)utils.c $(SRCS)inits.c $(SRCS)threads.c \
-					$(SRCS)mutex_control.c $(SRCS)clean_and_destroy.c $(SRCS)actions.c \
-					$(SRCS)print_actions.c $(SRCS)check_conditions.c
-
+FLAGS			=	-Werror -Wextra -Wall
 CC				=	gcc
-FLAGS			=	-g -Wall -Wextra -Werror -MMD
-RM				=	rm -rf
 
-OBJS			=	$(SRCS_FILES:%.c=%.o)
+# ---------------------------------- Colors ---------------------------------- #
 
-DEPS			=	$(SRCS_FILES:%.c=%.d)
-
-# Colors
-
-NOCOLOR			=	\033[0m
-BOLD_PURPLE		=	\033[1;35m
-BOLD_CYAN		=	\033[1;36m
+DEF_COLOR		=	\033[0;39m
+GRAY			=	\033[0;90m
 RED				=	\033[0;91m
-YELLOW			=	\033[5;93m
+GREEN			=	\033[0;92m
+YELLOW			=	\033[0;93m
 BLUE			=	\033[0;94m
-GREEN			=	\033[0;32m
+MAGENTA			=	\033[0;95m
+CYAN			=	\033[0;96m
+ORANGE			=	\033[38;5;209m
+BROWN			=	\033[38;5;94m
+DARK_GRAY		=	\033[38;5;234m
+MID_GRAY		=	\033[38;5;245m
+DARK_GREEN		=	\033[38;5;64m
+DARK_YELLOW		=	\033[38;5;143m
+
+# -------------------------------- ACTIONS ----------------------------------- #
 
 all:
-				@$(MAKE) $(NAME)
+				@$(MAKE) -C $(MANDATORY_DIR)
+				@$(MAKE) -C $(BONUS_DIR)
 
-%.o: %.c
-				@echo "$(BOLD_CYAN)compiling: [$(RED)$<$(BOLD_PURPLE)]"
-				@$(CC) $(FLAGS) -I $(INC) -c $< -o $@
+$(NAME): Makefile
+				@$(MAKE) -C $(MANDTORY_DIR)
 
-$(NAME)::		$(OBJS)
-				@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-
-$(NAME)::
-				@echo "\n$(RED)Pilosophers Compiled ✅$(DEF_COLOR)\n"
+bonus:
+				@$(MAKE) -C $(BONUS_DIR)
 
 clean:
-				@$(RM) $(OBJS) $(NAME)
-				@$(RM) $(DEPS)
-				@echo "\n✅$(YELLOW)Clean: $(RED)Removed Philo's files \n$(DEF_COLOR)"
+				@make clean -sC $(MANDATORY_DIR)
+				@make clean -sC $(BONUS_DIR)
 
 fclean: clean
+				@echo "$(GREEN)Cleaned and ready for Philosophers!$(DEF_COLOR)"
 
-re: fclean all
+re: flcean
 
--include $(DEPS)
-
-.PHONY: all clean fclean re
+.PHONY:			all clean fclean re

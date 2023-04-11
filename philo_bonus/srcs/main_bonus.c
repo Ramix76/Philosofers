@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:51:47 by framos-p          #+#    #+#             */
-/*   Updated: 2023/04/05 16:32:39 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:17:46 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/defines.h"
+#include "../inc/defines_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -25,14 +25,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (init_philos(data) != 0)
-		return (cleanning(data, 1, 1));
-	if (init_mutexes(data) != 0)
-		return (cleanning(data, 0, 1));
-	data->time_start = time_stamp();
-	if (data->time_start == -1)
-		return (cleanning(data, 1, 1));
-	if (create_threads(data) != 0)
-		return (cleanning(data, 1, 1));
-	system ("leaks philo");
-	return (cleanning(data, 1, 0));
+		return (cleanning(data));
+	if (init_semaphores(data) != 0)
+		return (cleanning(data));
+	if (create_processes(data) != 0)
+		return (cleanning(data));
+	return (cleanning(data));
 }

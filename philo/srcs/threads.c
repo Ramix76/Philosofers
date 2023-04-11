@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:28:18 by framos-p          #+#    #+#             */
-/*   Updated: 2023/04/05 16:52:29 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:13:26 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if (philo->data->n_philos % 2 == 0)
+	if (philo->num % 2 == 0)
 	{
 		if (ft_usleep(philo->data->time_to_eat) != 0)
 			return (0);
