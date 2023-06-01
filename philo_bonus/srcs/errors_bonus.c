@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:30 by framos-p          #+#    #+#             */
-/*   Updated: 2023/04/06 15:35:54 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:08:39 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	check_args(int argc, char **argv, t_data *data)
 	if (argc == 6)
 	{
 		data->n_times_ate = ft_atoi(argv[5]);
-		if (data->n_times_ate < 0 || data->n_times_ate > INT_MAX)
+		if (data->n_times_ate <= 0 || data->n_times_ate > INT_MAX)
 			return (1);
 	}
 	else

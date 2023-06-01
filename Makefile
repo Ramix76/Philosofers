@@ -6,11 +6,12 @@
 #    By: framos-p <framos-p@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 11:36:01 by framos-p          #+#    #+#              #
-#    Updated: 2023/04/06 17:11:31 by framos-p         ###   ########.fr        #
+#    Updated: 2023/05/31 16:09:13 by framos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- VAR DECLARETION --------------------------#
+MAKE			:=	make --no-print-directory
 NAME			:=	philo
 
 MANDATORY_DIR	:=	philo/

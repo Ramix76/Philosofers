@@ -6,7 +6,7 @@
 /*   By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:28:18 by framos-p          #+#    #+#             */
-/*   Updated: 2023/04/11 12:47:14 by framos-p         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:04:07 by framos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	*routine(void *arg)
 	{
 		do_think(philo);
 		do_eat(philo);
-		if (philo->eat_counter && philo->data->n_times_ate == philo->eat_counter)
+		if (philo->eat_counter && philo->data->n_times_ate
+			== philo->eat_counter)
 			break ;
 		do_sleep(philo);
 	}
@@ -98,7 +99,6 @@ int	create_processes(t_data *data)
 			return (1);
 		if (data->philo[i].pid == 0)
 			routine(&data->philo[i]);
-		ft_usleep(50);
 	}
 	exit_action(data);
 	return (0);

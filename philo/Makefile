@@ -6,10 +6,11 @@
 #    By: framos-p <framos-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 13:04:57 by framos-p          #+#    #+#              #
-#    Updated: 2023/04/06 17:12:06 by framos-p         ###   ########.fr        #
+#    Updated: 2023/05/31 15:57:23 by framos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+MAKE			=	make --no-print-directory
 NAME			=	philo
 
 INC				=	inc
